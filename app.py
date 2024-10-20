@@ -81,6 +81,7 @@ class BM25Model:
         query_vector = {term: self.idf.get(term, 0) for term in query_terms}
 
         results = []
+        
         for filename, doc_vector in self.document_vectors.items():
             similarity = self.cosine_similarity(query_vector, doc_vector)
             if similarity > 0:
